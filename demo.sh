@@ -2,11 +2,16 @@
 https://h2o.vmware.com/
 https://h2o.vmware.com/my-resources/h2o-4-1731
 
+# Service Installer
+http://10.220.28.3:8888/#/ui
+
 # Vcenter
 https://vc01.h2o-4-1731.h2o.vmware.com/
 
 # TMC
 https://tanzuemea.tmc.cloud.vmware.com/clustergroups/fklein-cg/overview
+
+# AWS
 https://console.cloudgate.vmware.com/ui/#/home?provider=aws
 
 # TO Infra
@@ -15,9 +20,7 @@ https://vmware.wavefront.com/u/rNsjycZJrF?t=map-sales-sandbox
 # TO Apps
 https://vmware.wavefront.com/u/WYWCgR1V9d?t=map-sales-sandbox
 
-
-
-
+# ----------------------------
 # Login
 kubectl vsphere login --server vc01cl01-wcp.h2o-4-1731.h2o.vmware.com --vsphere-username 	administrator@vsphere.local --insecure-skip-tls-verify
 
