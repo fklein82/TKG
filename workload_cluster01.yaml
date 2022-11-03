@@ -1,0 +1,20 @@
+apiVersion: run.tanzu.vmware.com/v1alpha1
+kind: TanzuKubernetesCluster
+metadata:
+  name: tanzu-cluster-prod01
+  namespace: vns-tko1
+spec:
+  distribution:
+    version: v1.21
+  topology:
+    controlPlane:
+      count: 1
+      class: best-effort-medium
+      storageClass: vc01cl01-t0compute
+    workers:
+      count: 3
+      class: best-effort-large
+      storageClass: vc01cl01-t0compute
+  settings:
+    storage:
+      defaultClass: vc01cl01-t0compute
