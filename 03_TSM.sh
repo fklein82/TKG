@@ -43,7 +43,7 @@ k get all -A
 # Deploy the #2 AKS Cluster
 
 # Deploy Cluster AKS
-az group create --location eastus2 --name 'tsm-demo-cluster2'
+az group create --location northeurope --name 'tsm-demo-cluster2'
 ### Next step will deploy the Cluster - Take 30 min to complete
 az aks create --resource-group 'tsm-demo-cluster2' --name 'tsm-demo-cluster2' --node-count 3 --node-vm-size Standard_DS3_v2 --node-osdisk-size 500 --enable-pod-security-policy --generate-ssh-keys
 az aks get-credentials --resource-group 'tsm-demo-cluster2' --name 'tsm-demo-cluster2'
