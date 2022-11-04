@@ -14,6 +14,11 @@ https://tanzuemea.tmc.cloud.vmware.com/clustergroups/fklein-cg/overview
 # AWS
 https://console.cloudgate.vmware.com/ui/#/home?provider=aws
 
+# TSM
+https://prod-2.nsxservicemesh.vmware.com/home?view=global-namespaces
+
+http://51.104.147.110/
+
 # TO Infra
 https://vmware.wavefront.com/u/rNsjycZJrF?t=map-sales-sandbox
 
