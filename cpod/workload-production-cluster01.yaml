@@ -1,0 +1,22 @@
+apiVersion: run.tanzu.vmware.com/v1alpha2
+kind: TanzuKubernetesCluster
+metadata:
+  name: tkgs-prod01
+  namespace: production
+spec:
+  topology:
+    controlPlane:
+      replicas: 3
+      vmClass: best-effort-medium
+      storageClass: tanzu-sp
+      tkr:  
+        reference:
+          name: v1.21.2---vmware.1-tkg.1.ee25d55
+    nodePools:
+    - name: worker-nodepool-a1
+      replicas: 3
+      vmClass: best-effort-large
+      storageClass: tanzu-sp
+      tkr:  
+        reference:
+          name: v1.21.2---vmware.1-tkg.1.ee25d55
