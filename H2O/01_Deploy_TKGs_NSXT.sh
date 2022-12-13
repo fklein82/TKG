@@ -5,7 +5,7 @@
 
 
 
-export CONTROL_PLANE_IP_H2OWCP='vc01cl01-wcp.h2o-4-3004.h2o.vmware.com'
+export CONTROL_PLANE_IP_H2OWCP='10.220.6.162'
 export VC_USERNAME='administrator@vsphere.local'
 export TKG_NAMESPACE='horsprod'
 export TANZU_TOOLS_FILES_PATH='/Users/kfrederic/Documents/GitHub/TKG/H2O'

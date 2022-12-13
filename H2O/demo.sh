@@ -8,6 +8,9 @@ http://10.220.28.3:8888/#/ui
 # Vcenter
 https://vc01.h2o-4-3004.h2o.vmware.com/
 
+# Harbor
+https://10.220.6.165/
+
 # TMC
 https://tanzuemea.tmc.cloud.vmware.com/clustergroups/fklein-cg/overview
 
@@ -26,6 +29,12 @@ https://vmware.wavefront.com/u/WYWCgR1V9d?t=map-sales-sandbox
 
 
 # Demo 
+export CONTROL_PLANE_IP_H2OWCP='10.220.6.162'
+export VC_USERNAME='administrator@vsphere.local'
+export TKG_NAMESPACE='horsprod'
+export TANZU_TOOLS_FILES_PATH='/Users/kfrederic/Documents/GitHub/TKG/H2O'
+export TKG_CLUSTER='tkgs-dev01'
+
 #1 Deploy a workload Cluster 
 kubectl vsphere login --server $CONTROL_PLANE_IP_H2OWCP --vsphere-username $VC_USERNAME --insecure-skip-tls-verify
 kubectl config use-context prod-10.220.6.162
@@ -36,7 +45,7 @@ k get tkc -w
 ## nouvel onglet command line
 kubectl vsphere login --server $CONTROL_PLANE_IP_H2OWCP --vsphere-username $VC_USERNAME --insecure-skip-tls-verify
 kubectl config use-context horsprod
-k get tkc
+k get tkc 
 
 k edit tkc/tkgs-dev01
 ## passer le nombre de noeud à 1
@@ -56,7 +65,14 @@ k get tanzukubernetesrelease
 k edit tkc/tkgs-dev01
 ## maj + v pour surligner et supprimer les versions tkr / reference / name
 
-#4 je déploie une app 
+#4
+## j'ajoute mon cluster prod à TMC
+
+kubectl vsphere login --server $CONTROL_PLANE_IP_H2OWCP --vsphere-username $VC_USERNAME --insecure-skip-tls-verify  --tanzu-kubernetes-cluster-name tkgs-prod01 --tanzu-kubernetes-cluster-namespace prod
+
+
+
+#5 je déploie une app 
 ## je me connecte sur mon cluster
 kubectl vsphere login --server $CONTROL_PLANE_IP_H2OWCP --vsphere-username $VC_USERNAME --insecure-skip-tls-verify  --tanzu-kubernetes-cluster-name tkgs-dev01 --tanzu-kubernetes-cluster-namespace horsprod
 
