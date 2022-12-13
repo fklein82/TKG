@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: grafana
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: tanzu-sp
+  resources:
+    requests:
+        storage: 3Gi
