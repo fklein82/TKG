@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: my-pvc
+  name: boursorama-pvc
 spec:
   accessModes:
     - ReadWriteOnce
   storageClassName: tanzu-sp
   resources:
     requests:
-        storage: 3Gi
+        storage: 4Gi

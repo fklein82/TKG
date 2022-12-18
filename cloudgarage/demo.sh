@@ -23,13 +23,26 @@ arcas --env vsphere --file /opt/vmware/arcas/src/vsphere-dvs-tkgs-wcp.json --avi
 
 ### OPEN Chrome
 https://vcsa.cpod-sirius.az-fkd.cloud-garage.net/
+# Login | Pasword
+administrator@cpod-sirius.az-fkd.cloud-garage.net
+kCtQV0sYkNu!
 
 http://172.17.8.227:8888/#/ui
 
 https://tanzuemea.tmc.cloud.vmware.com/clustergroups/fklein-cg/overview
 
+# Prom / Grafana
+http://prometheus.cpod-sirius.az-fkd.cloud-garage.net/
 
+http://grafana.cpod-sirius.az-fkd.cloud-garage.net/
+admin
+N9saKhKIRC
 
+# TO Infra
+https://vmware.wavefront.com/u/rNsjycZJrF?t=map-sales-sandbox
+
+# TO Apps
+https://vmware.wavefront.com/u/WYWCgR1V9d?t=map-sales-sandbox
 
 ### Start Demo ### 
 # 1. Create a dev cluster in Hors Prod Namespace with TMC
@@ -56,8 +69,6 @@ kubectl create clusterrolebinding default-tkg-admin-privileged-binding --cluster
 kubectl create deployment fred --image yfke8313/blog:2022-08-23-16-29-07
 kubectl expose deployment fred --port 80 --type LoadBalancer
 
-kubectl expose --namespace default svc/prometheus-kube-prometheus-prometheus --port 9090:9090 --type LoadBalancer
-
 # Je crée un PVC
 cd /Users/kfrederic/Documents/GitHub/TKG/cloudgarage
 
@@ -82,11 +93,18 @@ k apply -f pvc.yaml
 # 5. Supervision :
 show the TMC dashboard
 # Prometheus
+kubectl vsphere login --server $CONTROL_PLANE_IP_H2OWCP --vsphere-username $VC_USERNAME --insecure-skip-tls-verify  --tanzu-kubernetes-cluster-name tkgs-dev01 --tanzu-kubernetes-cluster-namespace horsprod
+# type the password
+N9saKhKIRC
+
 kubectl port-forward --namespace default svc/prometheus-kube-prometheus-prometheus 9090:9090
 
 http://localhost:9090
 # filter:
 container_memory_working_set_bytes
+
+topk(10, count by (__name__)({__name__=~".+"}))
+count by (__name__)({__name__=~".+"})
 
 ## Grafana 
 # Password: 
