@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: boursorama-pvc
+  name: orange-pvc
 spec:
   accessModes:
     - ReadWriteOnce

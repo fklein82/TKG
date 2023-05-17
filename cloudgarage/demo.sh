@@ -66,7 +66,7 @@ kCtQV0sYkNu!
 
 # Je déploie une app d'abord.
 kubectl create clusterrolebinding default-tkg-admin-privileged-binding --clusterrole=psp:vmware-system-privileged --group=system:authenticated
-kubectl create deployment fred --image yfke8313/blog:2022-08-23-16-29-07
+kubectl create deployment fred --image registry.fklein.me/tanzu-blog/fklein-blog@sha256:d1aa70ffbd8345551dbbc6c9336bb1e6f691b56e188af6684e4b84654c6ce67a
 kubectl expose deployment fred --port 80 --type LoadBalancer
 
 # Je crée un PVC
