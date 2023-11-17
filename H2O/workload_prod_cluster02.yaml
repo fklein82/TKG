@@ -1,0 +1,33 @@
+[12:16] Eric De Witte
+apiVersion: run.tanzu.vmware.com/v1alpha2
+kind: TanzuKubernetesCluster
+metadata:
+  name: ns-01-cluster-01
+  namespace: ns-01
+spec:
+topology:
+   controlPlane:
+     count: 3
+     class: best-effort-medium
+     storageClass: tanzu-storage-policy
+   workers:
+     count: 3
+     class: best-effort-medium
+     storageClass: tanzu-storage-policy
+     volumes:
+       - name: containerd
+         mountPath: /var/lib/containerd
+         capacity:
+           storage: 100Gi
+distribution:
+   version: 1.23.8+vmware.3-tkg.1
+settings:
+   network:
+     cni:
+       name: antrea  #But could be left blank if using the default
+     services:
+       cidrBlocks: ["10.99.0.0/16"]
+     pods:
+       cidrBlocks: ["10.98.0.0/16"]
+   storage:
+     defaultClass: tanzu-storage-policy
